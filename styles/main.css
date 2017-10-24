@@ -228,3 +228,8 @@ input[type="range"] {
 .red {
   background: rgb(218, 45, 123);
 }
+
+h1{
+  font-size: 20px;
+  padding-top: 10px;
+}
