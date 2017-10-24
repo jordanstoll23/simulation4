@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="triviaTrends">
 
 <head>
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
   <link rel="shortcut icon" href="/styles/assets/crownFavicon.png">
 </head>
 
-<body>
+<body ng-controller="triviaCtrl">
   <header>
     <div></div>
     <h1>Trivia Trends</h1>
@@ -17,7 +17,7 @@
   </header>
   <article>
     <nav>
-      <a>All Questions</a>
+      <a ng-click="show=true">All Questions</a>
       <a>Easy</a>
       <a>Medium</a>
       <a>Hard</a>
@@ -26,19 +26,28 @@
     <div class="search">
       <input type="text" placeholder="Animal to search by">
     </div>
+    <div ng-show="show">
 
+      <div ng-repeat="question in questionData">
+        {{question.question}}
+        {{question.options["1"]}}
+        {{question.options["2"]}}
+        {{question.options["3"]}}
+        {{question.options["4"]}}
+      </div>
+    </div>
     <!-- Questions go here -->
 
   </article>
 
-  <div class="modal">
+  <!-- <div class="modal" >
     <form>
       <h4 class="close">X</h4>
-      <span>Question</span><input type="text" ng-model="<!-- Question -->">
-      <span>Animal it's about</span><input type="text" ng-model="<!-- Animal -->">
+      <span>Question</span><input type="text" ng-model="questionData.question"
+      <span>Animal it's about</span><input type="text" ng-model=""
       <span>Difficulty</span>
       <div class="range">
-        <input type="range" min="1" max="3" ng-model="<!-- Difficulty -->">
+        <input type="range" min="1" max="3" ng-model=""
 
         <h5>{{newQuestion.difficulty}}</h5>
       </div>
@@ -74,7 +83,7 @@
       </div>
 
     </form>
-  </div>
+  </div> -->
 
 
 
@@ -82,6 +91,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>
   <script src="./app.js" charset="utf-8"></script>
+  <script src="trivia/triviaCtrl.js"></script>
+  <script src="trivia/triviaSrvc.js"></script>
 </body>
 
 </html>
