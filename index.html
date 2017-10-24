@@ -18,32 +18,77 @@
   <article>
     <nav>
       <a ng-click="show=true">All Questions</a>
-      <a>Easy</a>
-      <a>Medium</a>
-      <a>Hard</a>
+      <a ng-click="difficulty(1)">Easy</a>
+      <a ng-click="difficulty(2)">Medium</a>
+      <a ng-click="difficulty(3)">Hard</a>
       <a>Search by Animal</a>
     </nav>
     <div class="search">
-      <input type="text" placeholder="Animal to search by">
+      <input type="text" placeholder="Animal to search by" ng-model="animal">
     </div>
-    <div ng-show="show">
+    <div  ng-show="show">
 
-      <div ng-repeat="question in questionData">
-        <h1>{{question.question}}</h1>
-        {{question.options["1"]}}
-        {{question.options["2"]}}
-        {{question.options["3"]}}
-        {{question.options["4"]}}
+      <div class="question-wrapper" ng-repeat="question in questionData | filter: animal">
+        <h3>{{question.question}} </h3>
+       <div>{{question.difficulty}}</div> 
+       <div class="gear">
+        <img src="/styles/assets/gear.svg" alt="">
+       </div>
+       <ul>
+        <li > 
+          <input type="radio">
+            <label>{{question.options["1"]}}</label>
+        </li>
+        <li > 
+          <input type="radio">
+            <label>{{question.options["2"]}}</label>
+        </li>
+        <li > 
+          <input type="radio">
+            <label>{{question.options["3"]}}</label>
+        </li>
+        <li > 
+          <input type="radio">
+            <label>{{question.options["4"]}}</label>
+        </li>
+       </ul>
       </div>
     </div>
+
+    <div   class="question-wrapper" ng-repeat= "diff in difficultData">
+      <h3>{{diff.question}} </h3>
+      <div>{{diff.difficulty}}</div>
+      <div class='gear'>
+        <img src="/styles/assets/gear.svg" alt="">
+      </div>
+      <ul>
+        <li > 
+          <input type="radio">
+            <label>{{diff.options["1"]}}</label>
+        </li>
+        <li > 
+          <input type="radio">
+            <label>{{diff.options["2"]}}</label>
+        </li>
+        <li > 
+          <input type="radio">
+            <label>{{diff.options["3"]}}</label>
+        </li>
+        <li > 
+          <input type="radio">
+            <label>{{diff.options["4"]}}</label>
+        </li>
+       </ul>
+    
+      </div>
     <!-- Questions go here -->
 
   </article>
 
-  <!-- <div class="modal" >
+  <div class="modal" >
     <form>
       <h4 class="close">X</h4>
-      <span>Question</span><input type="text" ng-model="questionData.question"
+      <span>Question</span><input type="text" ng-model="question"
       <span>Animal it's about</span><input type="text" ng-model=""
       <span>Difficulty</span>
       <div class="range">
@@ -62,7 +107,7 @@
       </div>
       <div>
         <input type="radio" ng-model="" value="3">
-        <input type="text" ng-model="">
+        <input type="text" ng-model="q.name">
       </div>
       <div>
         <input type="radio" ng-model="" value="4">
@@ -71,7 +116,7 @@
 
       <!--Add question buttons-->
       <div class="buttons">
-        <button class="green">Save Question</button>
+        <button class="green" ng-click=addQuestion(q)>Save Question</button>
         <button>Cancel</button>
       </div>
 
