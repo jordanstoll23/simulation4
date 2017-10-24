@@ -21,9 +21,9 @@
       <a ng-click="difficulty(1)">Easy</a>
       <a ng-click="difficulty(2)">Medium</a>
       <a ng-click="difficulty(3)">Hard</a>
-      <a>Search by Animal</a>
+      <a ng-click="toggle()">Search by Animal</a>
     </nav>
-    <div class="search">
+    <div class="search" ng-hide="!Open">
       <input type="text" placeholder="Animal to search by" ng-model="animal">
     </div>
     <div  ng-show="show">

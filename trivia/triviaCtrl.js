@@ -34,5 +34,9 @@ $scope.addQuestion = function(add) {
   }).then(function(response) {
       return response.data;
   })
+};
+
+$scope.toggle = function() {
+  $scope.Open = !$scope.Open;
 }
 })
