@@ -1,22 +1,21 @@
-angular.module("triviaTrends").controller('triviaCtrl', function( $scope, triviaSrvc){
+angular.module("triviaTrends").controller('triviaCtrl', function( $scope, triviaSrvc, $http){
   
 $scope.q = {
-  "difficulty": 2,
-  "question": "which animal is the hyena more closely related to?",
-  "animal": "hyena",
-  "correct_answer": 3,
+  "difficulty": 0,
+  "question": "",
+  "animal": "",
+  "correct_answer": 0,
   "options": {
-      "1": "wolf",
-      "2": "african wilddog",
-      "3": "lion",
-      "4": "zebra"
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": ""
   }
 }
 
   triviaSrvc.getQuestions().then(function( response){
     $scope.questionData = response.data;
     console.log(response)
-<<<<<<< HEAD
 });
 $scope.difficulty = function(difficulty){
   console.log( difficulty);
@@ -26,7 +25,8 @@ $scope.difficulty = function(difficulty){
   })
 };
 
-this.addQuestion = function(add) {
+$scope.addQuestion = function(add) {
+  console.log(add)
   return $http({
       method: 'POST',
       url: 'https://practiceapi.devmountain.com//api/trivia/questions',
@@ -36,9 +36,3 @@ this.addQuestion = function(add) {
   })
 }
 })
-=======
-
-    
-  });
-})
->>>>>>> 5e1a6f0a4a8a874fd9dc870ea026a228054c1b3a

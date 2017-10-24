@@ -13,7 +13,7 @@
   <header>
     <div></div>
     <h1>Trivia Trends</h1>
-    <button><span>+</span> Add Question</button>
+    <button ng-click="model=true"><span>+</span> Add Question</button>
   </header>
   <article>
     <nav>
@@ -23,7 +23,6 @@
       <a ng-click="difficulty(3)">Hard</a>
       <a>Search by Animal</a>
     </nav>
-<<<<<<< HEAD
     <div class="search">
       <input type="text" placeholder="Animal to search by" ng-model="animal">
     </div>
@@ -53,19 +52,6 @@
             <label>{{question.options["4"]}}</label>
         </li>
        </ul>
-=======
-      <div class="search">
-        <input type="text" placeholder="Animal to search by">
-      </div>
-    <div ng-show="show">
-
-      <div ng-repeat="question in questionData">
-        <h1>{{question.question}}</h1>
-        {{question.options["1"]}}
-        {{question.options["2"]}}
-        {{question.options["3"]}}
-        {{question.options["4"]}}
->>>>>>> 5e1a6f0a4a8a874fd9dc870ea026a228054c1b3a
       </div>
     </div>
 
@@ -99,33 +85,33 @@
 
   </article>
 
-  <div class="modal" >
+  <div class="modal" ng-show="model" >
     <form>
-      <h4 class="close">X</h4>
-      <span>Question</span><input type="text" ng-model="question"
-      <span>Animal it's about</span><input type="text" ng-model=""
+      <h4 class="close" ng-click="model=false">X</h4>
+      <span>Question</span><input type="text" ng-model="q.question"
+      <span>Animal it's about</span><input type="text" ng-model="q.animal"
       <span>Difficulty</span>
       <div class="range">
-        <input type="range" min="1" max="3" ng-model=""
+        <input type="range" min="1" max="3" ng-model="q.difficulty">
 
-        <h5>{{newQuestion.difficulty}}</h5>
+        <h5>{{q.difficulty}}</h5>
       </div>
       <h4>Options</h4>
       <div>
-        <input type="radio" ng-model="" value="1">
-        <input type="text" ng-model="">
+        <input type="radio" name="form" ng-model="q.correct_answer" ng-value=1>
+        <input type="text"  ng-model="q.options['1']" >
       </div>
       <div>
-        <input type="radio" ng-model="" value="2">
-        <input type="text" ng-model="">
+        <input type="radio" name="form"  ng-model="q.correct_answer"  ng-value=2>
+        <input type="text" ng-model="q.options['2']">
       </div>
       <div>
-        <input type="radio" ng-model="" value="3">
-        <input type="text" ng-model="q.name">
+        <input type="radio" name="form"  ng-model="q.correct_answer" ng-value=3>
+        <input type="text" ng-model="q.options['3']">
       </div>
       <div>
-        <input type="radio" ng-model="" value="4">
-        <input type="text" ng-model="">
+        <input type="radio" name="form"  ng-model="q.correct_answer" ng-value=4>
+        <input type="text" ng-model="q.options['4']">
       </div>
 
       <!--Add question buttons-->
