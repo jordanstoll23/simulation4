@@ -33,5 +33,15 @@ this.addQuestion = function(add) {
   }).then(function(response) {
       return response.data;
   })
+};
+
+$scope.toggle = function() {
+  $scope.Open = !$scope.Open;
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 71d0b280092f780dd94460756ed545a7b18902e4
 })
