@@ -16,7 +16,6 @@ $scope.q = {
   triviaSrvc.getQuestions().then(function( response){
     $scope.questionData = response.data;
     console.log(response)
-<<<<<<< HEAD
 });
 $scope.difficulty = function(difficulty){
   console.log( difficulty);
@@ -36,9 +35,3 @@ this.addQuestion = function(add) {
   })
 }
 })
-=======
-
-    
-  });
-})
->>>>>>> 5e1a6f0a4a8a874fd9dc870ea026a228054c1b3a
